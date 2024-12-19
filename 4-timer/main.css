@@ -1,0 +1,50 @@
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  align-items: center;
+}
+.h1-wrap {
+  margin-top: 25px;
+  font-size: 35px;
+  color: rgb(3, 77, 3);
+  background-color: rgb(199, 162, 70);
+  border-radius: 50%;
+  width: 70%;
+}
+.timer,
+.names {
+  background: rgb(3, 77, 3);
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  border-radius: 20%;
+}
+.box,
+.name {
+  width: 200px;
+  height: 200px;
+  background-color: rgb(199, 162, 70);
+  color: rgb(3, 77, 3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+}
+.box:last-child,
+.name:last-child {
+  border-top-right-radius: 25%;
+  border-bottom-right-radius: 25%;
+}
+.box:first-child,
+.name:first-child {
+  border-top-left-radius: 25%;
+  border-bottom-left-radius: 25%;
+}
+.names {
+  margin-top: -60px;
+}
+.name {
+  height: 150px;
+  font-size: 40px;
+}
