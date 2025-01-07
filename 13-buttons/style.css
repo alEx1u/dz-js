@@ -1,0 +1,22 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.button {
+  color: #333;
+  background-color: red;
+  border-color: transparent;
+  padding: 10px;
+  font-size: 20px;
+}
+.yellow {
+    background: yellow;
+    color: blue;
+}
+.counter {
+  background-color: white;
+  color: #333;
+  padding: 10px;
+}
