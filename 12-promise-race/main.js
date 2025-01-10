@@ -1,30 +1,16 @@
-function promiseRace(promises) {
-  return new Promise((resolve, reject) => {
-    const resolvedPromises = promises.map((promise) => {
-      return new Promise((innerResolve, innerReject) => {
-        promise.then(innerResolve).catch(innerReject);
+window.addEventListener('load', function() {
+  function promiseRace(promises) {
+    return new Promise((resolve, reject) => {
+      promises.map(promise => {
+        return Promise.resolve(promise).then(resolve, reject)
       });
-    });
-    Promise.allSettled(resolvedPromises)
-      .then((results) => {
-        const firstFullfilled = results.find(
-          (result) => (result.status = "fulfilled")
-        );
-        if (firstFullfilled) {
-          console.log(firstFullfilled.value);
-          resolve(firstFullfilled.value);
-        } else {
-          reject(new Error("no promises were fulfilled"));
-        }
-      })
-      .catch((e) => console.error(e));
-  });
-}
-
-const promise1 = new Promise((resolve) => setTimeout(resolve, 1000, "Bee"));
-const promise2 = new Promise((resolve) => setTimeout(resolve, 2000, "Bee2"));
-const promise3 = new Promise((resolve, reject) =>
-  setTimeout(reject, 500, "Boo")
-);
-
-promiseRace([promise1, promise2, promise3]);
+    })
+  }
+  
+  const promise1 = new Promise((resolve) => setTimeout(resolve, 1000, "Bee"));
+  const promise2 = new Promise((resolve) => setTimeout(resolve, 2000, "Bee2"));
+  const promise3 = new Promise((resolve, reject) => this.setTimeout(reject, 900, 'asdfkj'));
+  
+  const result = promiseRace([promise1, promise2, promise3]);
+  console.log(result)
+})
