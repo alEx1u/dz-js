@@ -1,0 +1,25 @@
+{
+  "name": "simple-js-app",
+  "version": "1.0.0",
+  "description": "Very simple and very first one",
+  "main": "bundle.js",
+  "scripts": {
+    "build": "rollup js/index.js --file bundle.js --format umd",
+    "ls": "live-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alEx1u/dz-js.git"
+  },
+  "author": "Alex Evdokimov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alEx1u/dz-js/issues"
+  },
+  "homepage": "https://github.com/alEx1u/dz-js#readme",
+  "dependencies": {
+    "live-server": "^1.2.2",
+    "rollup": "^4.30.1"
+  }
+}
