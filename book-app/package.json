@@ -1,0 +1,33 @@
+{
+  "name": "book-app",
+  "version": "1.0.0",
+  "description": "an app to find a book",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "live-server",
+    "build": "rollup -c --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alEx1u/dz-js.git"
+  },
+  "author": "Alex Evdokimov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alEx1u/dz-js/issues"
+  },
+  "homepage": "https://github.com/alEx1u/dz-js#readme",
+  "dependencies": {
+    "live-server": "^1.2.2",
+    "on-change": "^5.0.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "eslint": "^9.18.0",
+    "globals": "^15.14.0",
+    "rollup": "^4.30.1",
+    "rollup-plugin-import-css": "^3.5.8"
+  }
+}
