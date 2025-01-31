@@ -3,6 +3,7 @@ import onChange from "on-change";
 import { Header } from "../../components/header/header.js";
 import { Search } from "../../components/search/search.js";
 import { CardList } from "../../components/card-list/card-list.js";
+import { Pagination } from "../../components/pagination/pagination.js";
 
 export class MainView extends AbstractView {
   state = {
@@ -11,6 +12,7 @@ export class MainView extends AbstractView {
     loading: false,
     searchQuery: undefined,
     offset: 0,
+    page: 1,
   };
 
   constructor(appState) {
@@ -45,13 +47,17 @@ export class MainView extends AbstractView {
       const data = await this.loadList(
         this.state.searchQuery,
         this.state.offset
-      );
+      );      
       this.state.loading = false;
       this.state.numFound = data.numFound;
       this.state.list = data.docs;
+      this.state.page = 1;
     }
 
     if (path === "loading" || path === "list") {
+      this.render();
+    }
+    if (path === "page") {
       this.render();
     }
   }
@@ -59,7 +65,7 @@ export class MainView extends AbstractView {
   render() {
     const main = document.createElement("div");
     main.append(new Search(this.state).render());
-    const h1 = document.createElement('h1');
+    const h1 = document.createElement("h1");
     h1.innerHTML = `
     Найдено книг - ${this.state.numFound}
     `;
@@ -68,6 +74,7 @@ export class MainView extends AbstractView {
     this.app.innerHTML = "";
     this.app.append(main);
     this.renderHeader();
+    main.append(new Pagination(this.state).render());
   }
 
   renderHeader() {

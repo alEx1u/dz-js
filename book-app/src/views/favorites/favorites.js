@@ -28,7 +28,7 @@ export class FavoritesView extends AbstractView {
                 <h1>Избранные книги - ${this.appState.favorites.length}</h1>
             `;
     main.append(
-      new CardList(this.appState, { list: this.appState.favorites }).render()
+      new CardList(this.appState, { list: this.appState.favorites }).renderFavorites()
     );
     this.app.innerHTML = "";
     this.app.append(main);

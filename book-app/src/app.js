@@ -9,6 +9,24 @@ class App {
   constructor() {
     window.addEventListener("hashchange", this.route.bind(this));
     this.route();
+    this.appState.favorites = this.loadFavorites();
+  }
+
+  loadFavorites() {
+    const favoriteBooks = localStorage.getItem('favoriteBooks');
+    let favBooks;
+
+    if(favoriteBooks) {
+      try {
+        favBooks = JSON.parse(favoriteBooks);
+      } catch (e) {
+        console.error('Ошибка парсинга favoriteBooks', e);
+        favBooks = [];
+      }
+    } else {
+      favBooks = [];
+    }
+    return favBooks;
   }
 
   route() {

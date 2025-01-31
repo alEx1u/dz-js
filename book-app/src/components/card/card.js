@@ -12,10 +12,11 @@ export class Card extends DivComponent {
         toggleFavorites(appState, card) {
             const list = appState.favorites;
             if(list.includes(card)) {
-                list.splice(list.indexOf(card), list.indexOf(card) + 1);
-                return;
-            }
+                list.splice(list.indexOf(card), 1);
+            } else {
             list.push(card);
+            }
+            localStorage.setItem('favoriteBooks', JSON.stringify(list))
         }
 
         render() {
